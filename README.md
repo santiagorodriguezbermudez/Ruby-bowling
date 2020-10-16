@@ -24,6 +24,11 @@ Follow the step-by-step guide:
 - Run "rspec" on your command line to check your tests outcome.
 - Check out the methods that has passed the tests. If you want to get the documentation of every test case you can run the follow command "rspec --format documentation"
 
+## Built with:
+- Ruby 2.6.5
+- Rubocop
+- RSpec
+
 👤 Santiago Rodriguez
 - Github: [santiagorodriguezbermudez](https://github.com/santiagorodriguezbermudez)
 - Twitter: [@srba87](https://twitter.com/srba87)
