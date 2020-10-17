@@ -1,5 +1,5 @@
 module Helper
   def self.validate_input(data)
-    data
+    nil
   end
 end
