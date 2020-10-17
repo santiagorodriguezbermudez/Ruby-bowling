@@ -25,5 +25,5 @@
 #  * 'just' rspec: 'rspec'
 
 guard :shell do
-  watch(%r{^*\.rb}) { `bundle exec rspec spec/` }
+  watch(%r{^*\.rb}) { `bundle exec rspec` }
 end

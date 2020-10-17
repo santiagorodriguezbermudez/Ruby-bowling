@@ -30,9 +30,6 @@ John 4
 Jeff 10
 Jeff 8
 Jeff 1
-John 10
+John 1
 John 9
-John 0
-Jeff 10
-John 4
-John 4
+John 1
