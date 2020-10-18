@@ -1,4 +1,6 @@
 require './lib/helpers'
+require './lib/player'
+require './lib/score_logic'
 
 describe Helper do
   Dir.chdir(File.dirname(__FILE__))

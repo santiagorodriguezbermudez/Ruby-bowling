@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 require_relative '../lib/player.rb'
-require_relative '../lib/game.rb'
-require_relative '../lib/score.rb'
+require_relative '../lib/score_logic.rb'
 require_relative '../lib/helpers.rb'
 
 # Make the path relative the current script
@@ -19,10 +18,8 @@ rescue StandardError
   exit
 end
 
-# Throw error in case the input is not valid
-begin
-  Helper.validate_input(file_data)
-rescue StandardError => e
-  puts "Error #{e}. Please review your input and try again"
-  exit
-end
+return Helper.validate_input(file_data) unless Helper.validate_input(file_data)
+
+organized_data = Helper.organize_data(file_data)
+
+puts organized_data
