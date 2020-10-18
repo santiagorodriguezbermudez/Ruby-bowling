@@ -10,11 +10,11 @@ Dir.chdir(File.dirname(__FILE__))
 # Capture the file data
 begin
   file_data = File.read(ARGV[0])
-rescue
+rescue StandardError
   if ARGV[0]
     puts "Error: The file #{ARGV[0]} could not be found"
   else
-    puts "Error: Empty file. Please run the program with an existing file"
+    puts 'Error: Empty file. Please run the program with an existing file'
   end
   exit
 end
@@ -22,8 +22,7 @@ end
 # Throw error in case the input is not valid
 begin
   Helper.validate_input(file_data)
-rescue => exception
-  puts "Error #{exception}. Please review your input and try again"
+rescue StandardError => e
+  puts "Error #{e}. Please review your input and try again"
   exit
 end
-
