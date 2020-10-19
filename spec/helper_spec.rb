@@ -9,7 +9,7 @@ describe Helper do
     it 'Organizes the array with player objects accordingly' do
       expect(Helper.organize_data(File.read('./fixtures/test_input.txt'))).to eql(
         {
-          'Jeff' => { "turn: 1": { turn_a: 10, turn_b: 0 }, "turn: 2": { turn_a: 7, turn_b: 3 } },
+          'Jeff' => { "turn: 1": { turn_a: 10, turn_b: 0 }, "turn: 2": { turn_a: 7, turn_b: 1 } },
           'John' => { "turn: 1": { turn_a: 3, turn_b: 7 } }
         }
       )
