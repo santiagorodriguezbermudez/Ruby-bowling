@@ -19,15 +19,27 @@ module Helper
 
   def self.check_number_of_turn(data)
     data.each do |player_name, scores|
-      return "Error: #{player_name} has less than 10 turns." if scores.size < 10
-
-      turn10 = scores['turn: 10'.to_sym]
-      turn11 = scores['turn: 11'.to_sym]
-      if turn10[:turn_a] != 10 && turn11
-        return "Error: #{player_name} has more turns than the 10 allowed" if turn11[:turn_b] || turn10[:turn_b] != 10
-      end
+      return "Error: #{player_name} has #{scores.size - 11} turns more than the 10 allowed" if scores.size > 11
+      return "Error: #{player_name} has bonus turn without spare or strike on last turn" if check_bonus_turn(scores)
+      return "Error: #{player_name} has more than 10 points in one turn" if check_sum(scores)
     end
     true
+  end
+
+  def self.check_sum(scores)
+    scores.each do |num_turn, turns|
+      first = turns[:turn_a] == 'F' ? 0 : turns[:turn_a]
+      second = turns[:turn_b] == 'F' ? 0 : turns[:turn_b]
+      second = second.nil? ? 0 : second
+      return true if first + second > 10 && num_turn.to_s.split(' ')[1].to_i != 11
+    end
+    false
+  end
+
+  def self.check_bonus_turn(scores)
+    turn10 = scores['turn: 10'.to_sym]
+    turn11 = scores['turn: 11'.to_sym]
+    return if turn11 && (turn10[:turn_a] + turn10[:turn_b]) != 10
   end
 
   def self.split_data(data)

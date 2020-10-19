@@ -29,7 +29,7 @@ describe Helper do
 
     it 'The input has more than 10 throws per player' do
       expect(Helper.validate_input(File.read('./fixtures/test_input_more_turns.txt')))
-        .to eql('Error: John has more turns than the 10 allowed')
+        .to eql('Error: John has 1 turns more than the 10 allowed')
     end
 
     it 'The input is correct when perfect score' do

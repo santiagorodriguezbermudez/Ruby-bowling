@@ -13,7 +13,8 @@ Steve 8
 Steve 0
 Steve 10
 Steve 8
-Steve 1
+Steve 2
+Steve 9
 Jeff 10
 John 3
 John 7
@@ -39,7 +40,7 @@ John 9
 John 0
 Jeff 10
 John 7
-John F
+John 3
 Jeff 10
 John 4
 John 4
