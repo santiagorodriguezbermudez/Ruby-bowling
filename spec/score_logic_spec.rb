@@ -21,15 +21,15 @@ describe ScoreLogic do
     it 'It returns the perfect pinfall' do
       expect(score.print_pinfalls).to eql(
         [
-          ['', 'X'],
-          ['', 'X'],
-          ['', 'X'],
-          ['', 'X'],
-          ['', 'X'],
-          ['', 'X'],
-          ['', 'X'],
-          ['', 'X'],
-          ['', 'X'],
+          [' ', 'X'],
+          [' ', 'X'],
+          [' ', 'X'],
+          [' ', 'X'],
+          [' ', 'X'],
+          [' ', 'X'],
+          [' ', 'X'],
+          [' ', 'X'],
+          [' ', 'X'],
           %w[X X X]
         ]
       )
@@ -57,15 +57,15 @@ describe ScoreLogic do
       expect(score.player.total_score).to eql(167)
       expect(score.print_pinfalls).to eql(
         [
-          ['', 'X'],
+          [' ', 'X'],
           ['7', '/'],
           %w[9 0],
-          ['', 'X'],
+          [' ', 'X'],
           %w[0 8],
           ['8', '/'],
           %w[F 6],
-          ['', 'X'],
-          ['', 'X'],
+          [' ', 'X'],
+          [' ', 'X'],
           %w[X 8 1]
         ]
       )

@@ -82,7 +82,7 @@ class ScoreLogic
 
   def print_pinfall(turn)
     if clean_numbers(turn[:turn_a]) == 10
-      ['', 'X']
+      [' ', 'X']
     elsif clean_numbers(turn[:turn_a]) + clean_numbers(turn[:turn_b]) == 10
       [turn[:turn_a].to_s, '/']
     else
@@ -91,12 +91,12 @@ class ScoreLogic
   end
 
   def print_last_pinfall(turn, next_turn)
-    first_next = next_turn[:turn_a] == 10 ? 'X' : next_turn[:turn_a].to_s
-    second_next = next_turn[:turn_b] == 10 ? 'X' : next_turn[:turn_b].to_s
-
     if clean_numbers(turn[:turn_a]) == 10
+      first_next = next_turn[:turn_a] == 10 ? 'X' : next_turn[:turn_a].to_s
+      second_next = next_turn[:turn_b] == 10 ? 'X' : next_turn[:turn_b].to_s
       ['X', first_next, second_next]
     elsif clean_numbers(turn[:turn_a]) + clean_numbers(turn[:turn_b]) == 10
+      first_next = next_turn[:turn_a] == 10 ? 'X' : next_turn[:turn_a].to_s
       [turn[:turn_a].to_s, '/', first_next]
     else
       [turn[:turn_a].to_s, turn[:turn_b].to_s]
