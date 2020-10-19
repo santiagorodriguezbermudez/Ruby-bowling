@@ -1,6 +1,6 @@
 # Bowling Score
 
-Creating a Bowling backend app with Ruby
+A Bowling program that takes in player's input and outputs the total score of the game.
 
 ## Getting Started
 According to [Wikipedia](https://en.wikipedia.org/wiki/Ten-pin_bowling#Rules_of_play):
@@ -15,7 +15,8 @@ Follow the step-by-step guide:
   1. Fork this repo or download it.
   2. Run bundle install for running the repo's dependencies.
   3. Open your project folder from your CL.
-  4. Run `ruby bin/main.rb`.
+  4. Save your input file within `bin/player_input_file`
+  4. Run `bin/main.rb + "(file_name)"`. For example: `bin/main.rb './player_input_file/test_input.txt'`
   5. Checkout the game results on your CL.
 
 ## How to run tests:
@@ -28,6 +29,7 @@ Follow the step-by-step guide:
 - Ruby 2.6.5
 - Rubocop
 - RSpec
+- Guard Gem
 
 👤 Santiago Rodriguez
 - Github: [santiagorodriguezbermudez](https://github.com/santiagorodriguezbermudez)
