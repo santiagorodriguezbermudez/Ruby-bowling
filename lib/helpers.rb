@@ -19,13 +19,12 @@ module Helper
 
   def self.check_number_of_turn(data)
     data.each do |player_name, scores|
-      return "Error: One of the players has less than 10 turns" if scores.size < 10
-      return "Error: #{player_name} has #{scores.size - 11} turns more than the 10 allowed" if scores.size > 11
+      return "Error: #{player_name} has less than 10 turns." if scores.size < 10
 
       turn10 = scores['turn: 10'.to_sym]
       turn11 = scores['turn: 11'.to_sym]
       if turn10[:turn_a] != 10 && turn11
-        return "Error: #{player_name} has 1 more turn than the 10 allowed" if turn11[:turn_b] || turn10[:turn_b] != 10
+        return "Error: #{player_name} has more turns than the 10 allowed" if turn11[:turn_b] || turn10[:turn_b] != 10
       end
     end
     true
@@ -43,7 +42,7 @@ module Helper
 
     split_data(data).each do |turn|
       player_name = turn[:player_name]
-      score = turn[:score] == 'F' ? 'F' : turn[:score].to_i 
+      score = turn[:score] == 'F' ? 'F' : turn[:score].to_i
 
       number_turn = player_hash[player_name].size
       current_turn = "turn: #{number_turn}".to_sym
