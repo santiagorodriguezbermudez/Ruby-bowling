@@ -19,11 +19,11 @@ describe ScoreLogic do
     end
 
     it 'It returns the perfect pinfall' do
-      expect(score.get_pinfalls).to eql([['', 'X'], ['', 'X'], ['', 'X'], ['', 'X'], ['', 'X'], ['', 'X'], ['', 'X'], ['', 'X'], ['', 'X'], ['', 'X']])
+      expect(score.get_pinfalls).to eql([['', 'X'], ['', 'X'], ['', 'X'], ['', 'X'], ['', 'X'], ['', 'X'], ['', 'X'], ['', 'X'], ['', 'X'], ['X', 'X', 'X']])
     end
 
     it 'The player has the the perfect score' do
-      expect(player.total_score).to eql(300)
+      expect(score.player.total_score).to eql(300)
     end
 
     it 'It returns a zero score' do
@@ -35,13 +35,14 @@ describe ScoreLogic do
       expect(score.get_score).to eql([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
     end
 
-    it 'It returns a partial score' do
-      data = Helper.organize_data(File.read('./fixtures/test_input.txt'))
+    it 'It returns a score' do
+      data = Helper.organize_data(File.read('./fixtures/test_input_score.txt'))
       player_name, score = data.first
       player = Player.new(player_name)
       score = ScoreLogic.new({ player: Player.new(player), score: score})
-
-      expect(score.get_score).to eql([18, 26])
+      expect(score.get_score).to eql([20, 39, 48, 66, 74, 84, 90, 120, 148, 167])
+      expect(score.player.total_score).to eql(167)
+      expect(score.get_pinfalls).to eql([['', 'X'], ['7', '/'], ['9', '0'], ['', 'X'], ['0', '8'], ['8', '/'], ['F', '6'], ['', 'X'], ['', 'X'], ['X', '8', '1']])
     end
   end
 end

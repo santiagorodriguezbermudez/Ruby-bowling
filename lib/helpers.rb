@@ -14,11 +14,12 @@ module Helper
     organize_data = self.organize_data(data)
 
     # Check if number of turns per player is more than 10
-    check_last_turn(organize_data)
+    check_number_of_turn(organize_data)
   end
 
-  def self.check_last_turn(data)
+  def self.check_number_of_turn(data)
     data.each do |player_name, scores|
+      return "Error: One of the players has less than 10 turns" if scores.size < 10
       return "Error: #{player_name} has #{scores.size - 11} turns more than the 10 allowed" if scores.size > 11
 
       turn10 = scores['turn: 10'.to_sym]
@@ -42,7 +43,7 @@ module Helper
 
     split_data(data).each do |turn|
       player_name = turn[:player_name]
-      score = turn[:score].to_i
+      score = turn[:score] == 'F' ? 'F' : turn[:score].to_i 
 
       number_turn = player_hash[player_name].size
       current_turn = "turn: #{number_turn}".to_sym
